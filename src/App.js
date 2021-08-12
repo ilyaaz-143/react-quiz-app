@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Fab } from "@material-ui/core";
+import { Brightness4, Brightness7 } from "@material-ui/icons";
+import { useState } from "react";
+import Quiz from "./Components/FetchQuiz";
 function App() {
+  const [mode, setMode] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Quiz modes={mode} />
+      <Fab className="modes" color="primary" onClick={() => setMode(!mode)}>
+        {mode ? <Brightness4 /> : <Brightness7 />}
+      </Fab>
+    </>
   );
 }
 
